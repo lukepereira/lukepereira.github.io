@@ -55,7 +55,7 @@ function mySequence (i) {
     /*if (i% 2 == 0){
           window.open ('/images/' + i + '.jpg' )
     } */ 
-  window.open ('http://lukeplato.com/' + linkArray[i], '_self', false);  
+  window.open ('https://lukeplato.com/' + linkArray[i], '_self', false);  
   setTimeout(function () {
     if (--i) {             
           mySequence(i);  // Call the loop again
