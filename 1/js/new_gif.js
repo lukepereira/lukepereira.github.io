@@ -32,7 +32,7 @@ function load_image_by_filename(filename) {
   // http://stackoverflow.com/questions/4811172/is-it-possible-to-track-hash-links-like-pages-with-google-analytics
   _gaq.push(['_trackPageview', location.pathname + location.search  + location.hash]);
 
-  var url = 'http://en.wikipedia.org/w/api.php?' +
+  var url = 'https://en.wikipedia.org/w/api.php?' +
             'action=query&prop=imageinfo' +
             '&format=json&iiprop=url' + 
             '&list=imageusage&iutitle=File:' +
@@ -49,14 +49,14 @@ function load_image_by_filename(filename) {
     $("#usage").empty();
     if(data.query.imageusage) {
       $.each(data.query.imageusage, function(index, value) {
-    $("#usage").append('<li><a href="http://en.wikipedia.org/wiki/' + value.title + '">' + value.title + '</a></li>');
+    $("#usage").append('<li><a href="https://en.wikipedia.org/wiki/' + value.title + '">' + value.title + '</a></li>');
       });
     }
   });
 }
 
 function load_random_image() {
-  $.getJSON("http://www.wikigifs.org/random?callback=?", function(data) {
+  $.getJSON("https://www.wikigifs.org/random?callback=?", function(data) {
     load_image_by_filename(data.image)
   });
 }
