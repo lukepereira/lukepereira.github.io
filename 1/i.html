@@ -142,7 +142,7 @@
                        'http://lukeplato.com/switch/@.html',
                        'http://mathchan.org'];
   
-  document.getElementById("txtUrl").value =  "http://www.mathchan.org";
+  document.getElementById("txtUrl").value =  "https://www.mathchan.org";
 
   var siteifrm = 'siteifrm_0';
   
@@ -158,8 +158,8 @@
 
   function setBrowserFrameSource(x){
     if( x === 0 || (x == 1 && event.keyCode == 13)) {// fix 
-      if (document.getElementById("txtUrl").value.substring(0, 8) !="https://" && document.getElementById("txtUrl").value.substring(0, 7) != "http://"){
-        document.getElementById("txtUrl").value = "http://" + document.getElementById("txtUrl").value;			
+      if (document.getElementById("txtUrl").value.substring(0, 8) !="https://" && document.getElementById("txtUrl").value.substring(0, 7) != "https://"){
+        document.getElementById("txtUrl").value = "https://" + document.getElementById("txtUrl").value;			
       }
     var browserFrame = document.getElementById(siteifrm);
     browserFrame.src= document.getElementById("txtUrl").value;
