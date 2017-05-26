@@ -1,2 +1,210 @@
+<html>
+<head>
+  <title>LUKEPLATO</title>
+  <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.3.min.js"></script> 
+  <style type="text/css">
+  table { height: 100%; width: 100%; }
+  #center { align: center; }
+  #gif { text-align: center; vertical-align: middle; }
+  #gif img { max-width: 800px; max-height: 400px; }
 
-hello world
+  ::-moz-selection { /* Code for Firefox */
+    color: #f60;
+    background: black;
+}
+
+::selection {
+    color: #f60;
+    background: white;
+
+  </style>
+  <link REL="stylesheet" TYPE="text/css" HREF="lukeplato/text.css">
+  <script src="js/index.js"></script>
+  <link rel="shortcut icon" type="image/x-icon" href="lukeplato/phi.png">
+</head>
+<body>
+  <div class = "container"><DIV style="position: relative; top: 10">
+  <ul><li style="text-align:left;  position: relative; left: 120px">  
+    <span title = "Click or spacebar for random" id = "permutable1" onmouseenter="permute('permutable1')" onclick = "permute('permutable1'); load_random_image();">Lukeplato</span>
+    
+  </li> </ul>
+
+  </DIV></div>
+  <table>
+  <tr><td id="center"><div id="gif" onclick="load_random_image();" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);"></td></tr>
+  </table>
+  </div>
+  <div class = "container" style="position: fixed; bottom: 20 ">
+  <!--
+  <img src="lukeplato/platonic_solids.gif" usemap="imgmap"; style="width:350px;height:77px;margin-left:auto;margin-right:auto;"> </img>
+<map id="imgmap" name="imgmap">
+<area shape="rect" alt="" title="" coords="0,0,75,100" href="#Vite.gif" target="" />
+<area shape="rect" alt="" title="" coords="75,0,150,100" href="#Siteswap_3b_531.gif" target="" />
+<area shape="rect" alt="" title="" coords="150,0,225,100" href="#Thoracic_vertebra_9_animation3.gif" target="" />
+<area shape="rect" alt="" title="" coords="225,0,280,100" href="#Platonic_Solids_Stereo_4_-_Dodecahedron.gif" target="" />
+<area shape="rect" alt="" title="" coords="280,0,375,100" href="iphone.html" target="" />
+  -->
+  
+  
+  <ul><li style="text-align:left;  position: relative; left: 124px">
+    <a onClick="mySequence(5); return false;" href=""><span id = "permutable2"  onmouseenter="permute('permutable2')" onmouseleave="unpermute('Sequence','permutable2')">Sequence</span></a>
+      <a href="http://www.lukeplato.com/nav.html" style="color:#f60">*</a>
+  </li></ul>
+  
+  </div>
+
+
+<!-- ticker borders -->
+    
+
+<body data-type="page" data-id="2" data-catid="">
+<div class="banner banner-right" id="banner-right">
+    <div class="banner_inner banner_inner-right _Default"></div>
+</div>
+<!--<div class="banner banner-bottom" id="banner-bottom">
+    <div class="banner_inner banner_inner-bottom _Default"></div>
+</div>-->
+<div class="banner banner-left" id="banner-left">
+    <div class="banner_inner banner_inner-left _Default"></div>
+</div>
+
+
+<script>
+  Frontend.start();
+</script>
+
+<script type="text/javascript">
+  
+  if (screen.width <= 800) {
+    window.location = "http://www.lukeplato.com/page_1.html";
+  }
+  
+</script>
+
+<script src="https://code.jquery.com/jquery-3.0.0.min.js" integrity="sha256-JmvOoLtYsmqlsWxa7mDSLMwa6dZ9rrIdtrrVYRnDRH0=" crossorigin="anonymous"></script>
+
+<script>
+!function(a) {
+  a.fn.scrollForever = function(b) {
+    var c = {
+      placeholder: 0,
+      dir: "left",
+      container: "ul",
+      inner: "li",
+      speed: 1e5,
+      delayTime: 0,
+      continuous: !0,
+      num: 1
+    },
+    d = a.extend({}, c, b),
+    e = d.placeholder,
+    f = d.dir,
+    g = d.speed;
+    d.Time;
+    var i = d.num,
+    j = d.delayTime;
+
+    return this.each(function() {
+      function s() {
+        q = h.outerWidth(), r = h.outerHeight(), d.continuous ? "left" == f ? (l = q * k, c.css("width", 2 * l), p && (h.clone().appendTo(c), p = !1)) : "top" == f && (l = r * k, c.css("height", 2 * l), p && (h.clone().appendTo(c), p = !1)) : "left" == f ? (e = 0 != e ? e : q * i, l = q * (k + 1), c.css("width", l)) : "top" == f && (e = 0 != e ? e : r * i, l = r * (k + 1), c.css("height", l))
+      }
+
+      function t() {
+        d.continuous ? "left" == f ? (m = b.scrollLeft(), m >= l ? b.scrollLeft(0) : b.scrollLeft(m + 1)) : "top" == f && (m = b.scrollTop(), m >= l ? b.scrollTop(0) : b.scrollTop(m + 1)) : "left" == f ? c.animate({
+          marginLeft: "-" + e
+        }, g,
+
+        function() {
+          c.css({
+          marginLeft: 0
+          }).find(d.inner + ":lt(" + i + ")").appendTo(c)
+        }) : "top" == f && c.animate({
+          marginTop: "+" + e
+        }, g, 
+
+        function() {
+          c.css({
+            marginTop: 0
+          }).find(d.inner + ":lt(" + i + ")").appendTo(c)
+        })
+      }
+
+      var l, m, n, o, q, r, b = a(this),
+      c = b.find(d.container),
+      h = c.find(d.inner),
+      k = h.length,
+      p = !0;
+      a(window).on("resize", function() {
+        clearTimeout(o), o = setTimeout(s, 250)
+      }), s();
+
+      var u = 1 == d.continuous ? 20 : 2e3;
+      j = 0 == j ? u : j, n = setInterval(t, j), b.hover(function() {
+        clearInterval(n)
+      }, 
+
+      function() {
+        n = setInterval(t, j)
+      })
+    })
+  }
+}(jQuery);
+
+// Function that generates n number of span element inside banner
+function append(q) {
+  String.prototype.times = function(n) {
+    return Array.prototype.join.call({length: n+1}, this);
+  };
+  var luke = "<span class='banner_text banner_text-left'>1</span>".times(q);
+  //var plato = "<span class='banner_text banner_text-bottom'>lukeplato</span>".times(q);
+  var math = "<span class='banner_text banner_text-right'>0</span>".times(q);
+  $('.banner_inner-left').append(luke);
+  //$('.banner_inner-bottom').append(plato);
+  $('.banner_inner-right').append(math);
+}
+
+// On load append n span element per banner
+$(window).on("load",function(e){
+  $(".primary").attr('id', 'primary');
+  $(".primary > ul").attr('class', 'primary_inner');
+  var q = "5";
+  append(q);
+});
+
+
+// Every n seconds append and remove n items to create an infinitive banner
+window.setInterval(function(){
+  var q = "5";
+  append(q);
+  $(".banner_inner-right > .banner_text-right").slice(0,50).remove();
+  //$(".banner_inner-bottom > .banner_text-bottom").slice(0,50).remove();
+  $(".banner_inner-left > .banner_text-left").slice(0,50).remove();
+}, 5000);
+
+// Scrollforever settings for banner left
+$("#banner-left").scrollForever({
+  container: '.banner',
+  inner: '.banner_inner'
+});
+
+
+// Scrollforever settings for banner bottom
+$("#banner-bottom").scrollForever({
+  container: '.banner',
+  inner: '.banner_inner'
+});
+
+
+// Scrollforever settings for banner right
+$("#banner-right").scrollForever({
+  container: '.banner',
+  inner: '.banner_inner'
+});
+
+</script>
+
+
+
+</body>
+<script type="text/javascript" src="lukeplato/js/new_gif.js"></script> 
+</html>

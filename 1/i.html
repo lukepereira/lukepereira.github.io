@@ -1,0 +1,195 @@
+<!DOCTYPE html> 
+<html>
+<head>
+  <title>LUKEPLATO</title>
+  <link rel="shortcut icon" type="image/x-icon" href="phi.png">
+  <link REL="stylesheet" TYPE="text/css" HREF="css/text.css">
+  <script src="js/index.js"></script>
+  <style type="text/css">
+    .slideContainer {
+      overflow-x: scroll;
+      white-space: nowrap;
+    }
+    iframe {
+      position: static; 
+      height: 550px;
+      width: 700px;
+      resize: horizontal;
+      overflow: scroll;
+      border: none;
+    }
+    #doublescroll{
+      overflow: auto; 
+      overflow-y: hidden; 
+      -webkit-overflow-scrolling: touch;
+    }
+    #doublescroll_browser{
+      overflow: auto; 
+      overflow-y: hidden;
+      -webkit-overflow-scrolling: touch; 
+    }
+    body{
+      
+    }
+  </style>
+</head>
+<body>
+<center>
+  <div class="slideContainer" id ="doublescroll">
+    <iframe src="http://www.lukeplato.com/#Siteswap_3b_531.gif"></iframe>
+  </div>
+  <br><br>
+  <div class="slideContainer" id ="doublescroll">
+  <iframe src="http://www.lukeplato.com/canvas.html"></iframe>
+  </div>
+  <br><br>
+  <ul>
+  <!--<li style="text-align:left;  position: relative; left: 550px;">
+      <span title = "" id = "permutable3" onmouseenter="permute('permutable3')" onclick = "unpermute('Internal','permutable3'); newInternalSite();">Browser</span>-
+      </li> -->
+  </ul>
+  <br>
+  <div class="slideContainer" id ="doublescroll_browser">
+    <iframe id="siteifrm_0" src="http://lukeplato.com/switch/@.html" onLoad="iframeDidLoad();"; border: none;"></iframe>   	  	
+  </div>
+<form method="post" > 
+
+      <input type="button" title= "Back" value="<" onClick="history.back();" />
+      <input type="button" title="Forward" value=">" onClick="history.forward();" />
+      <input type="button" value=" Go " onClick="setBrowserFrameSource(0);" />
+      <input id="txtUrl" style="width: 410px;" placeholder="Enter website" name="url" type="text" onkeydown="setBrowserFrameSource(1);"/>
+      <input type="button" value="Bookmarks" onClick="newSite();" />
+      <input type="button" title="Internal Page" value="i" onClick="newInternalSite();" /> 
+      <select id="tabs" onchange='siteifrm = this.options[this.selectedIndex].value;'>
+        <option value="siteifrm_0">home</option>
+      </select>
+      <input type="button" title="New tab" value="+" onClick="newiframe();" />
+  </form>
+
+  </center>
+  <br><br>
+  <?php
+    $url = "";
+    $header = get_headers($url, 1);
+    $header = $header["X-Frame-Options"];
+  ?>
+</body>
+<script type="text/javascript">
+  /* Clean up & Move to index.js
+  Tp implement:
+  change 'footer video to cave'
+  - Fix refresh on enter
+  - create select dropdown for bookmarks
+  - make i iterate, not random
+  - make variation of home.html
+  - create close tab
+  - tab selection shouldn't default to 1
+  - try to fix double scroll in browser
+
+  */
+  var width = screen.width;
+  var height = screen.height;
+  function DoubleScroll(element) {
+    var scrollbar= document.createElement('div');
+    scrollbar.appendChild(document.createElement('div'));
+    scrollbar.style.overflow= 'auto';
+    scrollbar.style.overflowY= 'hidden';
+    scrollbar.firstChild.style.width= element.scrollWidth+'px';
+    scrollbar.firstChild.style.paddingTop= '1px';
+    scrollbar.firstChild.appendChild(document.createTextNode('\xA0'));
+    scrollbar.onscroll= function() {
+        element.scrollLeft= scrollbar.scrollLeft;
+    };
+    element.onscroll= function() {
+        scrollbar.scrollLeft= element.scrollLeft;
+    };
+    element.parentNode.insertBefore(scrollbar, element);
+    }
+  DoubleScroll(document.getElementById('doublescroll'));
+  //DoubleScroll(document.getElementById('doublescroll_browser'));
+  function iframeDidLoad() {
+    alert($('header'));
+  }
+  // USE DATABASE
+  var sites = ['http://gizmodo.com',
+             'http://motherboard.vice.com',
+             'http://theintercept.com',
+             'http://wired.com',
+             'http://www.securitytube.net',
+             'http://4chan.org/g',
+             'http://4chan.org/sci',
+             'https://en.wikipedia.org/wiki/Main_Page',
+             'http://playground.tensorflow.org',
+             'https://archive.org',
+             'https://en.wikipedia.org/wiki/Deliberative_democracy',
+             'https://scholar.princeton.edu/sites/default/files/mgilens/files/gilens_and_page_2014_-testing_theories_of_american_politics.doc.pdf',
+             'http://www.quipqiup.com/index.php',
+             //'http://0x27.me/HackBack/0x00.txt',
+             'https://www.youtube.com/embed/NfF989-rW04',
+             'http://mathchan.org',
+             'http://wordsmith.org/anagram/',
+             'http://cicada3301.org/liber/',
+             'http://lukeplato.com/dice_net_cross.gif',
+             'http://everything2.com/title/Ikkyu',
+             'https://math.dartmouth.edu/~doyle/docs/self/self.pdf',
+             'https://upload.wikimedia.org/wikipedia/commons/3/3f/Carl_Friedrich_Gau%C3%9F_signature.svg',
+             'http://null-byte.wonderhowto.com'];
+
+  var internalSites = ['http://lukeplato.com/images',
+                       'http://lukeplato.com/selector/editor.html',
+                       'http://lukeplato.com/selector/notepad.html',
+                       'http://lukeplato.com/test.html',
+                       'http://lukeplato.com/switch/@.html',
+                       'http://mathchan.org'];
+  
+  document.getElementById("txtUrl").value =  "http://www.mathchan.org";
+
+  var siteifrm = 'siteifrm_0';
+  
+  function newSite() {
+    document.getElementById(siteifrm).src = sites[Math.floor(Math.random() * sites.length)];
+    document.getElementById("txtUrl").value = document.getElementById(siteifrm).src;
+  }
+
+  function newInternalSite() {
+    document.getElementById(siteifrm).src = internalSites[Math.floor(Math.random() * internalSites.length)];
+    document.getElementById("txtUrl").value = document.getElementById(siteifrm).src;
+  }
+
+  function setBrowserFrameSource(x){
+    if( x === 0 || (x == 1 && event.keyCode == 13)) {// fix 
+      if (document.getElementById("txtUrl").value.substring(0, 8) !="https://" && document.getElementById("txtUrl").value.substring(0, 7) != "http://"){
+        document.getElementById("txtUrl").value = "http://" + document.getElementById("txtUrl").value;			
+      }
+    var browserFrame = document.getElementById(siteifrm);
+    browserFrame.src= document.getElementById("txtUrl").value;
+    }
+  }
+
+  function navigate(direction){
+    if (direction == 'forward'){
+      document.getElementById(siteifrm).contentWindow.history.forward();
+      document.getElementById(siteifrm).history.go(1);
+    } else {
+      document.getElementById(siteifrm).history.back();
+      document.getElementById(siteifrm).history.go(-1);
+    }
+  }
+  var i = 0;
+  function newiframe(){
+  	i += 1;
+  	document.getElementById("doublescroll_browser").innerHTML+= "<iframe id='siteifrm_"+ i + " 'src='' style = 'border: inset;'></iframe>";
+  	document.getElementById("tabs").innerHTML += "<option value='siteifrm_" + i + " '>tab " + i + " </option>"
+
+	  /*
+$('#doublescroll_browser').scrollTop(0);
+
+	$("doublescroll_browser").attr("overflow", "hidden"); 
+	setTimeout(function(){
+      $("doublescroll_browser").attr("overflow", "auto"); 
+     },1); 
+	 //doublescroll_browser.removeChild(doublescroll_browser.getFirstChild);
+	 // DoubleScroll(document.getElementById('doublescroll_browser'));*/
+ }
+</script>
+</html>

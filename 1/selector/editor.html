@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>editor</title> 
+    <link rel="shortcut icon" type="image/x-icon" href="../phi.png">
+</head>
+<style> </style>
+<body onload="Start()">
+<div >
+<table>
+<tr>
+<td style="vertical-align: top">
+
+<div id="code" style="width: 640px; height: 600px; margin-top: 2px">//Editor
+
+#include &lt;stdio.h&gt;
+
+void main(){
+
+}   
+
+</div>
+<select id="lang" onchange='editor.setValue("");editor.getSession().setMode("ace/mode/"+this.options[this.selectedIndex].value)'>
+  <option value="c_cpp" style = "color:black">gcc</option>
+  <option value="lua">lua</option>
+  <option value="perl">perl</option>
+  <option value="php">php</option>
+  <option value="python">python</option>
+  <option value="ruby">ruby</option>
+  <option value="sh">sh</option>
+</select> 
+Theme <select onchange='editor.setTheme("ace/theme/"+this.options[this.selectedIndex].value)'>
+  <option value="monokai">monokai</option>
+  <option value="terminal">terminal</option>
+  <option value="tomorrow">tomorrow</option>
+  <option value="xcode">xcode</option>
+</select>
+</div>
+</body>
+<script src="https://s-macke.github.io/jor1k/demos/ace-editor-src-min-noconflict/ace.js"></script>
+
+<script>
+function Start() {
+    CreateEditor();
+}
+function CreateEditor(){
+    editor = ace.edit("code");
+    editor.setTheme("ace/theme/tomorrow");
+    editor.getSession().setNewLineMode("unix");
+    editor.getSession().setMode("ace/mode/c_cpp");
+}
+
+</script>
+</html>

@@ -1,0 +1,57 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" type="image/x-icon" href="img/phi.png">
+    <title>LUKEPLATO</title>
+    <link href="css/style1.css" type="text/css" rel="stylesheet"/>
+    <link href='https://fonts.googleapis.com/css?family=Raleway:400,600,700,800,900' rel='stylesheet' type='text/css'>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script> 
+</style>
+<body>
+<div class="wraper">
+    <header class="container demo">
+        <div class="content">
+            <div id="large-header" class="large-header">
+                <canvas id="demo-canvas"></canvas>
+                <div class="head_cont">
+                    <div class="wr_menu">
+                        <div class="wrap_menu">
+                            <div class="logo"><img src="img/phi.png" alt="" height="60" width="60"></div>
+                            <button class="pull">Menu</button>
+                            <ul class="menu">
+                                <li><a href="page_0.html">Text</a></li>
+                                <li><a href="i.html" target="_blank">Forum</a></li>
+                                <li><a href="https://www.youtube.com/user/LukePluto/playlists" target="_blank">Youtube</a></li>
+                                <li><a href="https://twitter.com/lukeplato" target="_blank">    </a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="text_head"> <!--background-color: #f60;  #318CFB -->
+                        <h2>Luke  <span style="background-color: #f60; opacity: 0.9;">∩</span> Plato</h2>
+                        <!-- <p>Plato describes a gathering of people who have lived chained inside a cave facing a wall their entire lives. The people watch shadows projected on the wall from objects passing before a fire behind them, and they give names to these shadows. The shadows are as close as the prisoners come to viewing reality. He then explains how the philosopher is like a prisoner who is freed from the cave and comes to understand that the shadows on the wall do not make up reality, for they can perceive the true form of reality and not the mere shadows seen by the prisoners.</p>  --> <br><br><br>
+                        <div class="wr_butt">
+                        <a href="https://www.youtube.com/watch?v=NfF989-rW04" class="b1 but" target="_blank">Cave</a>
+                        <a href="../index.html" class="b2 but">Forms</a>    
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+</div>
+<script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/499416/TweenLite.min.js"></script>
+<script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/499416/EasePack.min.js"></script>
+<script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/499416/demo.js"></script>
+<!--<script type="text/javascript" src="http://rvlearning.com.au/wp-content/themes/learn/js/scr.js"></script> -->
+<script type="text/javascript" >
+        $(document).ready(function(){
+          $('.pull').click(function(){
+         $(this).parents('.wrap_menu').find('.menu').slideToggle(1000);  
+         $(this).parents('.wrap_menu').find('.pull').toggleClass('is_open');
+           });
+        });
+    </script>
+</body>
+</html>

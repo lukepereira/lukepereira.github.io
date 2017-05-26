@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Main Menu</title>
+	<link href="https://mottie.github.io/Keyboard/docs/css/bootstrap.min.css" rel="stylesheet">
+	<link href="https://mottie.github.io/Keyboard/docs/css/demo.css" rel="stylesheet">
+	<!-- jQuery & jQuery UI + theme -->
+	<link href="https://mottie.github.io/Keyboard/docs/css/jquery-ui.min.css" rel="stylesheet">
+	<script src="https://mottie.github.io/Keyboard/docs/js/jquery-latest.min.js"></script>
+	<script src="https://mottie.github.io/Keyboard/docs/js/jquery-ui.min.js"></script>
+	<script src="https://mottie.github.io/Keyboard/docs/js/bootstrap.min.js"></script>
+	<!-- keyboard widget css & script-->
+	<link href="https://mottie.github.io/Keyboard/css/keyboard.css" rel="stylesheet">
+	<script src="https://mottie.github.io/Keyboard/js/jquery.keyboard.js"></script>
+	<!-- keyboard extensions -->
+	<script src="https://mottie.github.io/Keyboard/js/jquery.mousewheel.js "></script>
+	<script src="https://mottie.github.io/Keyboard/js/jquery.keyboard.extension-typing.js"></script>
+	<script src="https://mottie.github.io/Keyboard/js/jquery.keyboard.extension-autocomplete.js"></script>
+	<style>
+	/* override bootstrap active state */
+	button.btn-default:active {
+		background-color: #FFF;
+		-webkit-box-shadow: none;
+		box-shadow: none;
+	}
+	button.btn-default:active:hover {
+		background-color: #3276B1;
+	}
+	/* override Bootstrap excessive button padding */
+	button.ui-keyboard-button.btn {
+		padding: 1px 6px;
+	}
+	/* Bootswatch Darkly input is too bright */
+	.ui-keyboard-input.light, .ui-keyboard-preview.light { color: #222; background: #ddd; }
+	.ui-keyboard-input.dark, .ui-keyboard-preview.dark { color: #ddd; background: #222; }
+
+    body{
+
+    transform: scale(0.95);
+    -ms-transform: scale(0.95); /* IE 9 */
+    -webkit-transform: scale(0.95); /* Safari and Chrome */
+    -o-transform: scale(0.95); /* Firefox */
+	}
+
+	select option {
+    margin:40px;
+    background: rgba(0,0,0,0.7);
+    color:#fff;
+    text-shadow:0 1px 0 rgba(0,0,0,0.6);
+	}
+
+	</style>
+	<link rel="shortcut icon" type="image/x-icon" href="phi.png">
+</head>
+
+<body onload="Start()">
+<div >
+<table>
+<tr>
+<td style="vertical-align: top">
+
+<div id="code" style="width: 640px; height: 388px; margin-top: 2px">//Encryption-Decryption
+
+#include &lt;stdio.h&gt;
+
+void main(){
+
+	FILE *fp,*fp1;
+	int choice;
+	char name[20],temp[20]={"Temp.txt"},c;
+	clrscr();
+	printf("
+
+	Press 1 to Encrypt:
+	Press 2 to Decrypt");
+	printf("Enter your Choice:");
+	scanf("%d",&choice);
+	switch(choice){
+		case 1:
+			printf("Enter the filename to Encrypt:");
+			scanf("%s",name);
+			fp=fopen(name,"r+");
+			if(fp==NULL){
+				printf("The file %s can't be open",name);
+				getch();
+				exit();
+			}
+
+			fp1=fopen(temp,"w+");
+			if(fp1==NULL){
+				printf("The file Temp can't be open");
+				getch();
+				exit();
+			}
+			c=fgetc(fp);
+			while(c!=EOF){
+			fputc((c+name[0]),fp1);printf("%c",c+name[0]);getch();
+			c=fgetc(fp);
+			}
+			fclose(fp);
+			fclose(fp1);
+			remove(name);
+			rename(temp,name);
+			printf("The file is Encrypted:");
+			getch();
+			break;
+	case 2:
+		printf("Enter the Filename to Decrypt:");
+		scanf("%s",name);
+		fp=fopen(name,"r+");
+		fp1=fopen(temp,"w+");
+		c=fgetc(fp);
+		while(c!=EOF){
+			fputc(c-name[0],fp1);
+			c=fgetc(fp);
+			}
+		fclose(fp);
+		fclose(fp1);
+		remove(name);
+		rename(temp,name);
+		printf("The file is decrypted:");
+		getch();
+	}
+}   
+
+</div>
+Compiler
+<select id="lang" onchange='editor.setValue("");editor.getSession().setMode("ace/mode/"+this.options[this.selectedIndex].value)'>
+  <option value="c_cpp">gcc</option>
+  <option value="lua">lua</option>
+  <option value="perl">perl</option>
+  <option value="php">php</option>
+  <option value="python">python</option>
+  <option value="ruby">ruby</option>
+  <option value="sh">sh</option>
+</select> 
+Theme <select onchange='editor.setTheme("ace/theme/"+this.options[this.selectedIndex].value)'>
+  <option value="monokai">monokai</option>
+  <option value="terminal">terminal</option>
+  <option value="tomorrow">tomorrow</option>
+  <option value="xcode">xcode</option>
+</select>
+
+</div>
+
+<script src="https://s-macke.github.io/jor1k/demos/ace-editor-src-min-noconflict/ace.js"></script>
+
+<div id="wrap" style="position: fixed"> 
+	<textarea id="inter" style ="height:100px;" ></textarea>
+</div> 
+
+<div align="bottom">
+<a href="http://www.lukeplato.com">Home</a>
+<a href="http://www.youtube.com/lukepluto">Youtube</a>
+<a href="http://www.twitter.com/lukeplato">Twitter</a>
+
+
+
+<div>
+</body>
+
+
+<script>
+$('#inter')
+.keyboard({
+	layout: 'qwerty',
+	autoAccept   : 'true',
+	// allow jQuery position utility to reposition the keyboard on window resize
+	reposition   : 'true',
+	// preview added above keyboard if true, original input/textarea used if false
+	usePreview   : 'true',
+	// if true, the keyboard will always be visible
+	alwaysOpen   : 'true',
+	// give the preview initial focus when the keyboard becomes visible
+	initialFocus : 'true',
+	// if true, keyboard will remain open even if the input loses focus.
+	stayOpen     : 'true',
+	usePreview   : 'true',
+	caretToEnd   : 'true',
+	autoAccept: 'true',
+	position     : {
+	    of : $(window),
+    	my : 'center top',
+    	at : 'center center',
+	    at2: 'center center'
+  },
+	css: {
+		// input & preview
+		// "label-default" for a darker background
+		// "light" for white text
+		input: 'form-control input-sm dark',
+		// keyboard container
+		container: 'center-block well',
+		// default state
+		buttonDefault: 'btn btn-default',
+		// hovered button
+		buttonHover: 'btn-primary',
+		// Action keys (e.g. Accept, Cancel, Tab, etc);
+		// this replaces "actionClass" option
+		buttonAction: 'active',
+		// used when disabling the decimal button {dec}
+		// when a decimal exists in the input area
+		buttonDisabled: 'disabled'
+	}
+
+})
+
+.addTyping();
+/*
+$('#inter-type').click(function(){
+$('#inter').getkeyboard().reveal().typeIn("{t}Hal{l}{l}{d}e{r}{r}l'o{b}o {e}{t}World", 500);
+return false;
+});
+*/
+</script>
+
+<script>
+function Start() {
+    CreateEditor();
+
+}
+function CreateEditor()
+{
+    editor = ace.edit("code");
+    editor.setTheme("ace/theme/monokai");
+    editor.getSession().setNewLineMode("unix");
+    editor.getSession().setMode("ace/mode/c_cpp");
+}
+</script>
+
+<script type="text/javascript">
+document.body.style.zoom="85%";
+</script>
+
+
+</html>
