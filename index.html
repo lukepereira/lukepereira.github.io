@@ -68,22 +68,14 @@
     <div class="banner_inner banner_inner-left _Default"></div>
 </div>
 
-
-<script>
-  Frontend.start();
-</script>
-
-<script type="text/javascript">
-  
-  if (screen.width <= 800) {
-    window.location = "https://www.lukeplato.com/page_1.html";
-  }
-  
-</script>
-
 <script src="https://code.jquery.com/jquery-3.0.0.min.js" integrity="sha256-JmvOoLtYsmqlsWxa7mDSLMwa6dZ9rrIdtrrVYRnDRH0=" crossorigin="anonymous"></script>
 
 <script>
+
+if (screen.width <= 800) {
+  window.location = "https://www.lukeplato.com/page_1.html";
+}  
+
 !function(a) {
   a.fn.scrollForever = function(b) {
     var c = {
@@ -155,7 +147,7 @@ function append(q) {
   String.prototype.times = function(n) {
     return Array.prototype.join.call({length: n+1}, this);
   };
-  var luke = "<span class='banner_text banner_text-left'>1</span>".times(q);
+  var luke = "<span class='banner_text banner_text-left'><a href='1/nav.html'>1</a></span>".times(q);
   //var plato = "<span class='banner_text banner_text-bottom'>lukeplato</span>".times(q);
   var math = "<span class='banner_text banner_text-right'>0</span>".times(q);
   $('.banner_inner-left').append(luke);
