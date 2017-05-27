@@ -14,7 +14,7 @@
 }
 
 ::selection {
-    color: #f60;
+    color: #000;
     background: white;
 
   </style>
@@ -46,10 +46,10 @@
   -->
   
   
-  <ul><li style="text-align:left;  position: relative; left: 124px">
+  <!--<ul><li style="text-align:left;  position: relative; left: 124px">
     <a onClick="mySequence(5); return false;" href=""><span id = "permutable2"  onmouseenter="permute('permutable2')" onmouseleave="unpermute('Sequence','permutable2')">Sequence</span></a>
       <a href="1/nav.html" style="color:#f60">*</a>
-  </li></ul>
+  </li></ul> -->
   
   </div>
 
@@ -149,7 +149,7 @@ function append(q) {
   };
   var luke = "<span class='banner_text banner_text-left'><a href='1/nav.html'>1</a></span>".times(q);
   //var plato = "<span class='banner_text banner_text-bottom'>lukeplato</span>".times(q);
-  var math = "<span class='banner_text banner_text-right'>0</span>".times(q);
+  var math = "<span class='banner_text banner_text-right'><a onClick='mySequence(5)'>0</a></span>".times(q);
   $('.banner_inner-left').append(luke);
   //$('.banner_inner-bottom').append(plato);
   $('.banner_inner-right').append(math);
